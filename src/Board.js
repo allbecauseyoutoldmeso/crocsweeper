@@ -8,14 +8,14 @@ function Row(props) {
   return (
     <div className="board-row">
     {props.cells.map(cell => (
-      <Square content={cell['x']}/>
+      <Square data={cell}/>
     ))}
     </div>
   )
 }
 
 function Grid() {
-  var gridMaker = new GridMaker(3)
+  var gridMaker = new GridMaker(10)
   var rows = gridMaker.rows()
   return (
     <div>

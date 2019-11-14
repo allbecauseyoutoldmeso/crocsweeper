@@ -4,48 +4,34 @@ import Crocodile from "./Crocodile"
 import GridMaker from "./GridMaker"
 
 
-
-
-
-
-function content() {
-  if (Math.random() > 0.2) {
-    return '?'
-  } else {
-    return <Crocodile/>
-  }
+function Row(props) {
+  return (
+    <div className="board-row">
+    {props.cells.map(cell => (
+      <Square content={cell['x']}/>
+    ))}
+    </div>
+  )
 }
 
-class Board extends React.Component {
-  renderSquare() {
-    return <Square content={content()}/>;
-  }
+function Grid() {
+  var gridMaker = new GridMaker(3)
+  var rows = gridMaker.rows()
+  return (
+    <div>
+    {rows.map(cells => (
+      <Row cells={cells}/>
+    ))}
+  </div>
+  )
+}
 
-  grid() {
-    var gridMaker = new GridMaker(3)
-    return gridMaker.newGrid()
-  }
+
+class Board extends React.Component {
 
   render() {
     return (
-      <div>
-        {  }
-        <div className="board-row">
-          {this.renderSquare()}
-          {this.renderSquare()}
-          {this.renderSquare()}
-        </div>
-        <div className="board-row">
-          {this.renderSquare()}
-          {this.renderSquare()}
-          {this.renderSquare()}
-        </div>
-        <div className="board-row">
-          {this.renderSquare()}
-          {this.renderSquare()}
-          {this.renderSquare()}
-        </div>
-      </div>
+      <Grid/>
     );
   }
 }

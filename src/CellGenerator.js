@@ -19,15 +19,15 @@ class CellGenerator {
   }
 
   addCrocodile(obj) {
-    obj['crocodile'] = (Math.random() < 0.1)
+    obj["crocodile"] = (Math.random() < 0.1)
   }
 
   addHidden(obj) {
-    obj['hidden'] = true
+    obj["hidden"] = true
   }
 
   addFlagged(obj) {
-    obj['flagged'] = false
+    obj["flagged"] = false
   }
 
   cells() {
@@ -42,7 +42,7 @@ class CellGenerator {
       const neighbours = coordinates.filter(function(b) {
         if(a === b) {
           return false
-        } else if ([b['x'] - 1, b['x'], b['x'] + 1].includes(a['x']) && [b['y'] - 1, b['y'], b['y'] + 1].includes(a['y'])) {
+        } else if ([b["x"] - 1, b["x"], b["x"] + 1].includes(a["x"]) && [b["y"] - 1, b["y"], b["y"] + 1].includes(a["y"])) {
           return true
         } else {
           return false
@@ -50,11 +50,11 @@ class CellGenerator {
       })
 
       const crocodiles = neighbours.filter(function(c) {
-        return c['crocodile'] === true
+        return c["crocodile"] === true
       })
 
-      if (a['crocodile'] === false) {
-        a['number'] = crocodiles.length
+      if (a["crocodile"] === false) {
+        a["number"] = crocodiles.length
       }
     })
 

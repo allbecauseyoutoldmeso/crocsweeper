@@ -1,7 +1,7 @@
 import React from "react";
 import CellGenerator from "./CellGenerator"
 import CellUpdater from "./CellUpdater"
-import Cell from './Cell'
+import Cell from "./Cell"
 
 class Grid extends React.Component {
   constructor(props) {
@@ -16,8 +16,8 @@ class Grid extends React.Component {
     var cells = this.state.cells.slice()
 
     if (event.type === "click") {
-      if (clickedCell['crocodile'] === true) {
-        alert('Game Over!')
+      if (clickedCell["crocodile"] === true) {
+        alert("Game Over!")
       } else {
         cellUpdater.leftClickUpdate(cells, clickedCell)
       }
@@ -46,13 +46,13 @@ class Grid extends React.Component {
 
     return (
       rows.map(cells => (
-        <div className="board-row" key={cells[0]['x']}>
+        <div className="board-row" key={cells[0]["x"]}>
           {
             cells.map(cell => (
               <Cell
                 onClick={(e) => this.handleClick(e, cell)}
                 data={cell}
-                key={`${cell['x']}, ${cell['y']}`}
+                key={`${cell["x"]}, ${cell["y"]}`}
               />
             ))
           }

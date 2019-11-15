@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 function Crocodile() {
   return (
-    <img src='crocodile.jpg' alt='crocodile' className='crocodile'/>
+    <img src="crocodile.jpg" alt="crocodile" className="crocodile"/>
   )
 }
 

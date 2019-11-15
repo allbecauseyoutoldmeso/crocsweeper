@@ -17,7 +17,7 @@ class Cell extends React.Component {
   }
 
   render() {
-    var content = this.content()
+    const content = this.content()
 
     return(
       <button className="square" onClick={(e) => this.props.onClick(e)} onContextMenu={(e) => this.props.onClick(e)}>

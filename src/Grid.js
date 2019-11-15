@@ -12,7 +12,7 @@ class Grid extends React.Component {
   }
 
   handleClick(event, clickedCell) {
-    var cellUpdater = new CellUpdater()
+    const cellUpdater = new CellUpdater()
     var cells = this.state.cells.slice()
 
     if (event.type === "click") {
@@ -62,7 +62,7 @@ class Grid extends React.Component {
   }
 
   render() {
-    var rows = this.rows()
+    const rows = this.rows()
 
     return (
       <div>

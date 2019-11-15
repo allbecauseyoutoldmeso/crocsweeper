@@ -39,7 +39,7 @@ class CellGenerator {
 
     coordinates.forEach(function (a) {
 
-      var neighbours = coordinates.filter(function(b) {
+      const neighbours = coordinates.filter(function(b) {
         if(a === b) {
           return false
         } else if ([b['x'] - 1, b['x'], b['x'] + 1].includes(a['x']) && [b['y'] - 1, b['y'], b['y'] + 1].includes(a['y'])) {
@@ -49,7 +49,7 @@ class CellGenerator {
         }
       })
 
-      var crocodiles = neighbours.filter(function(c) {
+      const crocodiles = neighbours.filter(function(c) {
         return c['crocodile'] === true
       })
 

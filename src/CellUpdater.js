@@ -9,7 +9,7 @@ class CellUpdater {
     })
 
     cells.forEach(function(a) {
-      var neighbours = cells.filter(function(b) {
+      const neighbours = cells.filter(function(b) {
         if(a === b) {
           return false
         } else if ([b['x'] - 1, b['x'], b['x'] + 1].includes(a['x']) && [b['y'] - 1, b['y'], b['y'] + 1].includes(a['y'])) {
@@ -19,7 +19,7 @@ class CellUpdater {
         }
       })
 
-      var magicNeighbours = neighbours.filter(function(neighbour) {
+      const magicNeighbours = neighbours.filter(function(neighbour) {
         return neighbour['number'] === 0 && neighbour['hidden'] === false
       })
 

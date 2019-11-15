@@ -25,7 +25,7 @@ class Grid extends React.Component {
     return Math.sqrt(this.cellCount())
   }
 
-  makeRows() {
+  rows() {
     var rows = []
 
     for(var i = 0; i < this.cellCount(); i += this.dimension()) {
@@ -40,7 +40,7 @@ class Grid extends React.Component {
   }
 
   render() {
-    var rows = this.makeRows()
+    var rows = this.rows()
 
     return (
       <div>

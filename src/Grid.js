@@ -1,11 +1,11 @@
 import React from "react";
-import GridMaker from "./GridMaker"
+import CellGenerator from "./CellGenerator"
 import Row from "./Row"
 
 
-function makeCells(dimension) {
-  var gridMaker = new GridMaker(dimension)
-  return gridMaker.cells()
+function generateCells(dimension) {
+  var cellGenerator = new CellGenerator(dimension)
+  return cellGenerator.cells()
 }
 
 
@@ -13,7 +13,7 @@ class Grid extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cells: makeCells(20),
+      cells: generateCells(20),
     };
   }
 

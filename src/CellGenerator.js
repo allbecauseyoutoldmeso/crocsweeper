@@ -1,4 +1,4 @@
-class GridMaker {
+class CellGenerator {
   constructor(dimension) {
     this.dimension = dimension
   }
@@ -55,4 +55,4 @@ class GridMaker {
   }
 }
 
-export default GridMaker;
+export default CellGenerator;

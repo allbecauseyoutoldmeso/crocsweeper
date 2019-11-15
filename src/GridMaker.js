@@ -19,7 +19,7 @@ class GridMaker {
   }
 
   addCrocodile(obj) {
-    obj['crocodile'] = (Math.random() < 0.3)
+    obj['crocodile'] = (Math.random() < 0.2)
   }
 
 
@@ -33,7 +33,7 @@ class GridMaker {
       var neighbours = coordinates.filter(function(b) {
         if(a === b) {
           return false
-        } else if ([b['x'] - 1, b['x'], b['x'] + 1].includes(a['x']) || [b['y'] - 1, b['y'], b['y'] + 1].includes(a['y'])) {
+        } else if ([b['x'] - 1, b['x'], b['x'] + 1].includes(a['x']) && [b['y'] - 1, b['y'], b['y'] + 1].includes(a['y'])) {
           return true
         } else {
           return false

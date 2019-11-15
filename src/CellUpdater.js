@@ -1,6 +1,6 @@
 class CellUpdater {
 
-  updatedCells(cells, clickedCell) {
+  leftClickUpdate(cells, clickedCell) {
 
     cells.forEach(function (cell) {
       if(cell['x'] === clickedCell['x'] && cell['y'] === clickedCell['y'] ) {
@@ -27,8 +27,14 @@ class CellUpdater {
         a['hidden'] = false
       }
     })
+  }
 
-    return cells
+  rightClickUpdate(cells, clickedCell) {
+    cells.forEach(function (cell) {
+      if(cell['x'] === clickedCell['x'] && cell['y'] === clickedCell['y'] ) {
+        cell['flagged'] = true
+      }
+    })
   }
 }
 

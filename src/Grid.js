@@ -11,8 +11,21 @@ class Grid extends React.Component {
     };
   }
 
-  handleClick(clickedCell) {
-    var cells = new CellUpdater().updatedCells(this.state.cells, clickedCell)
+  handleClick(event, clickedCell) {
+    var cellUpdater = new CellUpdater()
+    var cells = this.state.cells.slice()
+
+    if (event.type === "click") {
+      if (clickedCell['crocodile'] === true) {
+        alert('Game Over!')
+      } else {
+        cellUpdater.leftClickUpdate(cells, clickedCell)
+      }
+    } else {
+      event.preventDefault()
+      cellUpdater.rightClickUpdate(cells, clickedCell)
+    }
+
     this.setState({cells: cells});
   }
 
@@ -37,7 +50,7 @@ class Grid extends React.Component {
           {
             cells.map(cell => (
               <Cell
-                onClick={() => this.handleClick(cell)}
+                onClick={(e) => this.handleClick(e, cell)}
                 data={cell}
                 key={`${cell['x']}, ${cell['y']}`}
               />

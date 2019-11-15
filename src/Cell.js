@@ -5,12 +5,12 @@ import Flag from "./Flag"
 class Cell extends React.Component {
 
   content() {
-    if (this.props.data['hidden']) {
+    if (this.props.data['flagged']) {
+      return <Flag/>
+    } else if (this.props.data['hidden']) {
       return null
     } else if (this.props.data['crocodile']) {
       return <Crocodile/>
-    } else if (this.props.data['flagged']) {
-      return <Flag/>
     } else {
       return this.props.data['number']
     }
@@ -20,7 +20,7 @@ class Cell extends React.Component {
     var content = this.content()
 
     return(
-      <button className="square" onClick={() => this.props.onClick()}>
+      <button className="square" onClick={(e) => this.props.onClick(e)} onContextMenu={(e) => this.props.onClick(e)}>
         {content}
       </button>
     )

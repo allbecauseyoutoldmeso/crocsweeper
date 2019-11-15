@@ -19,7 +19,7 @@ class CellGenerator {
   }
 
   addCrocodile(obj) {
-    obj['crocodile'] = (Math.random() < 0.2)
+    obj['crocodile'] = (Math.random() < 0.1)
   }
 
   addHidden(obj) {
@@ -53,7 +53,9 @@ class CellGenerator {
         return c['crocodile'] === true
       })
 
-      a['number'] = crocodiles.length
+      if (a['crocodile'] === false) {
+        a['number'] = crocodiles.length
+      }
     })
 
     return coordinates

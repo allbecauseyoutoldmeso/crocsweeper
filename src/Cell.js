@@ -1,5 +1,6 @@
 import React from "react";
 import Crocodile from "./Crocodile"
+import Flag from "./Flag"
 
 class Cell extends React.Component {
 
@@ -8,6 +9,8 @@ class Cell extends React.Component {
       return null
     } else if (this.props.data['crocodile']) {
       return <Crocodile/>
+    } else if (this.props.data['flagged']) {
+      return <Flag/>
     } else {
       return this.props.data['number']
     }

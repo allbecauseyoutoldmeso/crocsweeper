@@ -26,11 +26,16 @@ class CellGenerator {
     obj['hidden'] = true
   }
 
+  addFlagged(obj) {
+    obj['flagged'] = false
+  }
+
   cells() {
     var coordinates = this.coordinates(3)
 
     coordinates.forEach(this.addCrocodile)
     coordinates.forEach(this.addHidden)
+    coordinates.forEach(this.addFlagged)
 
     coordinates.forEach(function (a) {
 

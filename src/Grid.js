@@ -2,30 +2,41 @@ import React from "react";
 import CellGenerator from "./CellGenerator"
 import Cell from './Cell'
 
-
-function generateCells(dimension) {
-  var cellGenerator = new CellGenerator(dimension)
-  return cellGenerator.cells()
-}
-
-
 class Grid extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cells: generateCells(20),
+      cells: new CellGenerator(20).cells(),
     };
   }
 
-  handleClick(clickedCell) {
-    console.log(this.state.cells)
-    console.log(clickedCell)
 
+  handleClick(clickedCell) {
     var cells = this.state.cells
 
     cells.forEach(function (cell) {
       if(cell['x'] === clickedCell['x'] && cell['y'] === clickedCell['y'] ) {
         cell['hidden'] = false
+      }
+    })
+
+    cells.forEach(function(a) {
+      var neighbours = cells.filter(function(b) {
+        if(a === b) {
+          return false
+        } else if ([b['x'] - 1, b['x'], b['x'] + 1].includes(a['x']) && [b['y'] - 1, b['y'], b['y'] + 1].includes(a['y'])) {
+          return true
+        } else {
+          return false
+        }
+      })
+
+      var magicNeighbours = neighbours.filter(function(neighbour) {
+        return neighbour['number'] === 0 && neighbour['hidden'] === false
+      })
+
+      if(magicNeighbours.length > 0 && a['crocodile'] === false) {
+        a['hidden'] = false
       }
     })
 

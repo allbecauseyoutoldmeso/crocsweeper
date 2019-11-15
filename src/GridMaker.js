@@ -22,11 +22,15 @@ class GridMaker {
     obj['crocodile'] = (Math.random() < 0.2)
   }
 
+  addHidden(obj) {
+    obj['hidden'] = true
+  }
 
-  newGrid() {
+  cells() {
     var coordinates = this.coordinates(3)
 
     coordinates.forEach(this.addCrocodile)
+    coordinates.forEach(this.addHidden)
 
     coordinates.forEach(function (a) {
 
@@ -48,15 +52,6 @@ class GridMaker {
     })
 
     return coordinates
-  }
-
-  rows() {
-    var grid = this.newGrid()
-    var rows = []
-    for(var i = 0; i < grid.length; i += this.dimension) {
-      rows.push(grid.slice(i, i + this.dimension))
-    }
-    return rows
   }
 }
 

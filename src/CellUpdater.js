@@ -32,7 +32,7 @@ class CellUpdater {
   rightClickUpdate(cells, clickedCell) {
     cells.forEach(function (cell) {
       if(cell['x'] === clickedCell['x'] && cell['y'] === clickedCell['y'] ) {
-        cell['flagged'] = true
+        cell['flagged'] = !cell['flagged']
       }
     })
   }

@@ -1,6 +1,6 @@
 import React from "react";
 import CellGenerator from "./CellGenerator"
-import Row from "./Row"
+import Cell from './Cell'
 
 
 function generateCells(dimension) {
@@ -15,6 +15,21 @@ class Grid extends React.Component {
     this.state = {
       cells: generateCells(20),
     };
+  }
+
+  handleClick(clickedCell) {
+    console.log(this.state.cells)
+    console.log(clickedCell)
+
+    var cells = this.state.cells
+
+    cells.forEach(function (cell) {
+      if(cell['x'] === clickedCell['x'] && cell['y'] === clickedCell['y'] ) {
+        cell['hidden'] = false
+      }
+    })
+
+    this.setState({cells: cells});
   }
 
   cellCount() {
@@ -34,7 +49,17 @@ class Grid extends React.Component {
 
     return (
       rows.map(cells => (
-        <Row cells={cells} key={cells[0]['x']}/>
+        <div className="board-row" key={cells[0]['x']}>
+          {
+            cells.map(cell => (
+              <Cell
+                onClick={() => this.handleClick(cell)}
+                data={cell}
+                key={`${cell['x']}, ${cell['y']}`}
+              />
+            ))
+          }
+        </div>
       ))
     )
   }

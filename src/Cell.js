@@ -17,7 +17,7 @@ class Cell extends React.Component {
     var content = this.content()
 
     return(
-      <button className="square">
+      <button className="square" onClick={() => this.props.onClick()}>
         {content}
       </button>
     )

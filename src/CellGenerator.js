@@ -40,7 +40,7 @@ class CellGenerator {
     coordinates.forEach(function (a) {
 
       const neighbours = coordinates.filter(function(b) {
-        if(a === b) {
+        if (a === b) {
           return false
         } else if ([b["x"] - 1, b["x"], b["x"] + 1].includes(a["x"]) && [b["y"] - 1, b["y"], b["y"] + 1].includes(a["y"])) {
           return true

@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Grid from "./Grid";
+import Layout from "./Layout";
 
 ReactDOM.render(
-  <Grid />,
+  <Layout />,
   document.getElementById("root")
 );

@@ -1,9 +1,24 @@
 body {
   margin: 20px;
+  background-color: #d9d9d9;
+  font-family: 'Nunito', sans-serif;
 }
 
 ol, ul {
   padding-left: 30px;
+}
+
+.main-image {
+  margin: auto;
+}
+
+.new-game {
+  font-family: 'Nunito', sans-serif;
+  background-color: #5BAA41;
+  border-radius: 5px;
+  border-color: #5BAA41;
+  color: #d9d9d9;
+  margin: auto;
 }
 
 .crocodile {
@@ -25,8 +40,10 @@ ol, ul {
 }
 
 .square {
+  font-family: 'Nunito', sans-serif;
   background: #fff;
   border: 1px solid #999;
+  border-radius: 5px;
   float: left;
   font-size: 24px;
   font-weight: bold;

@@ -1,5 +1,4 @@
 import React from "react";
-import CellGenerator from "./CellGenerator"
 import CellUpdater from "./CellUpdater"
 import Cell from "./Cell"
 
@@ -7,7 +6,7 @@ class Grid extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cells: new CellGenerator(20).cells(),
+      cells: this.props.cells,
     };
   }
 
@@ -15,12 +14,10 @@ class Grid extends React.Component {
     const cellUpdater = new CellUpdater()
     var cells = this.state.cells.slice()
 
-    if (event.type === "click") {
-      if (clickedCell["crocodile"] === true) {
-        alert("Game Over!")
-      } else {
-        cellUpdater.leftClickUpdate(cells, clickedCell)
-      }
+    if (event.type === "click" && clickedCell["crocodile"] === true) {
+      cellUpdater.endGameUpdate(cells)
+    } else if (event.type === "click") {
+      cellUpdater.leftClickUpdate(cells, clickedCell)
     } else {
       event.preventDefault()
       cellUpdater.rightClickUpdate(cells, clickedCell)

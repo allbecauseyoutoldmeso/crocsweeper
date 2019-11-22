@@ -15,7 +15,12 @@ class CellUpdater {
   }
 
   revealCells(cells) {
-    cells.forEach(function(a) {
+    const hiddenCells = cells.filter(
+      cell => cell["hidden"] === true && cell["crocodile"] === false
+    );
+    var changedCount = 0;
+
+    hiddenCells.forEach(function(a) {
       const neighbours = cells.filter(function(b) {
         if (a === b) {
           return false;
@@ -33,10 +38,15 @@ class CellUpdater {
         neighbour => neighbour["number"] === 0 && neighbour["hidden"] === false
       );
 
-      if (magicNeighbours.length > 0 && a["crocodile"] === false) {
+      if (magicNeighbours.length > 0) {
         a["hidden"] = false;
+        changedCount += 1;
       }
     });
+
+    if (changedCount > 0) {
+      this.revealCells(cells);
+    }
   }
 
   leftClickUpdate(cells, clickedCell) {
@@ -46,13 +56,7 @@ class CellUpdater {
       }
     });
 
-    var cellSnapShot = [...cells];
     this.revealCells(cells);
-
-    while (!this.arraysEqual(cells, cellSnapShot)) {
-      cellSnapShot = [...cells];
-      this.revealCells(cells);
-    }
   }
 
   rightClickUpdate(cells, clickedCell) {

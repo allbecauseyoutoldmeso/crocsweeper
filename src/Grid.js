@@ -1,12 +1,13 @@
 import React from "react";
 import CellUpdater from "./CellUpdater";
 import Cell from "./Cell";
+import CellGenerator from "./CellGenerator";
 
 class Grid extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cells: this.props.cells
+      cells: new CellGenerator(10).cells()
     };
   }
 

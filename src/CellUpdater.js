@@ -8,7 +8,7 @@ class CellUpdater {
   }
 
   arraysEqual(a, b) {
-    for (var i = 0; i < a.length; ++i) {
+    for (let i = 0; i < a.length; ++i) {
       if (a[i] !== b[i]) return false;
     }
     return true;
@@ -18,7 +18,7 @@ class CellUpdater {
     const hiddenCells = cells.filter(
       cell => cell["hidden"] === true && cell["crocodile"] === false
     );
-    var changedCount = 0;
+    let changedCount = 0;
 
     hiddenCells.forEach(function(a) {
       const neighbours = cells.filter(function(b) {

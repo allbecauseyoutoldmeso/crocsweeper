@@ -1,8 +1,8 @@
 class CellUpdater {
   endGameUpdate(cells) {
     cells.forEach(function(cell) {
-      if (cell["crocodile"] === true) {
-        cell["hidden"] = false;
+      if (cell.crocodile) {
+        cell.hidden = false;
       }
     });
   }
@@ -15,9 +15,7 @@ class CellUpdater {
   }
 
   revealCells(cells) {
-    const hiddenCells = cells.filter(
-      cell => cell["hidden"] === true && cell["crocodile"] === false
-    );
+    const hiddenCells = cells.filter(cell => cell.hidden && !cell.crocodile);
     let changedCount = 0;
 
     hiddenCells.forEach(function(a) {
@@ -25,8 +23,8 @@ class CellUpdater {
         if (a === b) {
           return false;
         } else if (
-          [b["x"] - 1, b["x"], b["x"] + 1].includes(a["x"]) &&
-          [b["y"] - 1, b["y"], b["y"] + 1].includes(a["y"])
+          [b.x - 1, b.x, b.x + 1].includes(a.x) &&
+          [b.y - 1, b.y, b.y + 1].includes(a.y)
         ) {
           return true;
         } else {
@@ -35,11 +33,11 @@ class CellUpdater {
       });
 
       const magicNeighbours = neighbours.filter(
-        neighbour => neighbour["number"] === 0 && neighbour["hidden"] === false
+        neighbour => neighbour.number === 0 && !neighbour.hidden
       );
 
       if (magicNeighbours.length > 0) {
-        a["hidden"] = false;
+        a.hidden = false;
         changedCount += 1;
       }
     });
@@ -51,8 +49,8 @@ class CellUpdater {
 
   leftClickUpdate(cells, clickedCell) {
     cells.forEach(function(cell) {
-      if (cell["x"] === clickedCell["x"] && cell["y"] === clickedCell["y"]) {
-        cell["hidden"] = false;
+      if (cell === clickedCell) {
+        cell.hidden = false;
       }
     });
 
@@ -61,8 +59,8 @@ class CellUpdater {
 
   rightClickUpdate(cells, clickedCell) {
     cells.forEach(function(cell) {
-      if (cell["x"] === clickedCell["x"] && cell["y"] === clickedCell["y"]) {
-        cell["flagged"] = !cell["flagged"];
+      if (cell === clickedCell) {
+        cell.flagged = !cell.flagged;
       }
     });
   }

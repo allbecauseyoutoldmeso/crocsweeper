@@ -18,32 +18,20 @@ class CellGenerator {
     return array;
   }
 
-  addCrocodile(obj) {
-    obj["crocodile"] = Math.random() < 0.2;
-  }
-
-  addHidden(obj) {
-    obj["hidden"] = true;
-  }
-
-  addFlagged(obj) {
-    obj["flagged"] = false;
-  }
-
   cells() {
     let coordinates = this.coordinates(3);
 
-    coordinates.forEach(this.addCrocodile);
-    coordinates.forEach(this.addHidden);
-    coordinates.forEach(this.addFlagged);
+    coordinates.forEach(obj => (obj.crocodile = Math.random() < 0.2));
+    coordinates.forEach(obj => (obj.hidden = true));
+    coordinates.forEach(obj => (obj.flagged = false));
 
     coordinates.forEach(function(a) {
       const neighbours = coordinates.filter(function(b) {
         if (a === b) {
           return false;
         } else if (
-          [b["x"] - 1, b["x"], b["x"] + 1].includes(a["x"]) &&
-          [b["y"] - 1, b["y"], b["y"] + 1].includes(a["y"])
+          [b.x - 1, b.x, b.x + 1].includes(a.x) &&
+          [b.y - 1, b.y, b.y + 1].includes(a.y)
         ) {
           return true;
         } else {
@@ -52,11 +40,11 @@ class CellGenerator {
       });
 
       const crocodiles = neighbours.filter(function(c) {
-        return c["crocodile"] === true;
+        return c.crocodile;
       });
 
-      if (a["crocodile"] === false) {
-        a["number"] = crocodiles.length;
+      if (!a.crocodile) {
+        a.number = crocodiles.length;
       }
     });
 

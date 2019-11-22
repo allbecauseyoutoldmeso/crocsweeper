@@ -4,7 +4,7 @@ import Cell from "./Cell";
 import CellGenerator from "./CellGenerator";
 
 function newCells() {
-  return new CellGenerator(10).cells();
+  return new CellGenerator(15).cells();
 }
 
 class Grid extends React.Component {
@@ -15,11 +15,25 @@ class Grid extends React.Component {
     };
   }
 
+  safeCells() {
+    return this.state.cells.filter(cell => !cell.crocodile);
+  }
+
+  gameWon() {
+    return this.safeCells().every(cell => !cell.hidden);
+  }
+
+  endGame() {
+    if (this.gameWon()) {
+      console.log("you win!");
+    }
+  }
+
   handleClick(event, clickedCell) {
     const cellUpdater = new CellUpdater();
     let cells = this.state.cells.slice();
 
-    if (event.type === "click" && clickedCell["crocodile"] === true) {
+    if (event.type === "click" && clickedCell.crocodile) {
       cellUpdater.endGameUpdate(cells);
     } else if (event.type === "click") {
       cellUpdater.leftClickUpdate(cells, clickedCell);
@@ -29,6 +43,7 @@ class Grid extends React.Component {
     }
 
     this.setState({ cells: cells });
+    this.endGame();
   }
 
   cellCount() {

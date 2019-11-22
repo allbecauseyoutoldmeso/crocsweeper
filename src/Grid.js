@@ -11,7 +11,8 @@ class Grid extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cells: newCells()
+      cells: newCells(),
+      gameWon: false
     };
   }
 
@@ -25,7 +26,7 @@ class Grid extends React.Component {
 
   endGame() {
     if (this.gameWon()) {
-      console.log("you win!");
+      this.setState({ gameWon: true });
     }
   }
 
@@ -87,6 +88,7 @@ class Grid extends React.Component {
         <button className="new-game" onClick={() => this.resetCells()}>
           New Game
         </button>
+        {this.state.gameWon ? "You win!" : null}
       </div>
     );
   }

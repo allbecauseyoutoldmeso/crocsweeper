@@ -3,11 +3,15 @@ import CellUpdater from "./CellUpdater";
 import Cell from "./Cell";
 import CellGenerator from "./CellGenerator";
 
+function newCells() {
+  return new CellGenerator(10).cells();
+}
+
 class Grid extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cells: new CellGenerator(10).cells()
+      cells: newCells()
     };
   }
 
@@ -55,10 +59,21 @@ class Grid extends React.Component {
     ));
   }
 
+  resetCells() {
+    this.setState({ cells: newCells() });
+  }
+
   render() {
     const rows = this.rows();
 
-    return <div>{rows}</div>;
+    return (
+      <div>
+        {rows}
+        <button className="new-game" onClick={() => this.resetCells()}>
+          New Game
+        </button>
+      </div>
+    );
   }
 }
 

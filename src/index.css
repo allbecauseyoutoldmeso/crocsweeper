@@ -1,16 +1,12 @@
 body {
-  margin: 20px;
-  background-color: #d9d9d9;
+  margin: 20px !important;
+  background-color: #d9d9d9 !important;
   font-family: "Nunito", sans-serif;
 }
 
 ol,
 ul {
   padding-left: 30px;
-}
-
-.main-image {
-  margin: auto;
 }
 
 .new-game {
@@ -20,6 +16,11 @@ ul {
   border-color: #5baa41;
   color: #ffffff;
   margin: auto;
+}
+
+.big-croc {
+  width: 100%;
+  margin: 20px;
 }
 
 .crocodile {
@@ -35,6 +36,12 @@ ul {
   clear: both;
   content: "";
   display: table;
+}
+
+.grid {
+  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .status {
@@ -74,4 +81,30 @@ ul {
 
 .game-info {
   margin-left: 20px;
+}
+
+.modal-content {
+  color: #ffffff;
+  background-color: #5baa41 !important;
+  font-family: "Nunito", sans-serif;
+  font-size: 30px;
+  border: 2px solid #ffffff !important;
+  border-radius: 10px !important;
+  width: 70% !important;
+}
+
+.close {
+  color: #ffffff !important;
+}
+
+.close-icon {
+  margin-right: 5px;
+}
+
+.croctastic {
+  margin-bottom: 20px;
+}
+
+.close:focus {
+  outline: none;
 }

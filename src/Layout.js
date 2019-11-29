@@ -1,17 +1,20 @@
 import React from "react";
 import Grid from "./Grid";
-import Crocodile from "./Crocodile";
+import BigCroc from "./bigCroc";
 
 class Layout extends React.Component {
   render() {
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col-8">
-            <Grid />
+          <div className="col-3"></div>
+          <div className="col-6">
+            <Grid className="grid" />
           </div>
-          <div className="col-4">
-            <Crocodile />
+          <div className="col-1">
+            <div className="main-image">
+              <BigCroc />
+            </div>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import React from "react";
 import CellUpdater from "./CellUpdater";
 import Cell from "./Cell";
 import CellGenerator from "./CellGenerator";
+import YouWin from "./YouWin";
 
 function newCells() {
   return new CellGenerator(15).cells();
@@ -12,7 +13,7 @@ class Grid extends React.Component {
     super(props);
     this.state = {
       cells: newCells(),
-      gameWon: false
+      showYouWin: false
     };
   }
 
@@ -26,7 +27,7 @@ class Grid extends React.Component {
 
   endGame() {
     if (this.gameWon()) {
-      this.setState({ gameWon: true });
+      this.setState({ showYouWin: true });
     }
   }
 
@@ -79,16 +80,25 @@ class Grid extends React.Component {
     this.setState({ cells: newCells() });
   }
 
+  hideYouWin() {
+    this.setState({ showYouWin: false });
+  }
+
   render() {
     const rows = this.rows();
 
     return (
       <div>
-        {rows}
-        <button className="new-game" onClick={() => this.resetCells()}>
-          New Game
-        </button>
-        {true ? "You win!" : null}
+        <YouWin
+          show={this.state.showYouWin}
+          onClick={() => this.hideYouWin()}
+        />
+        <div class="grid">{rows}</div>
+        <div class="row">
+          <button className="new-game" onClick={() => this.resetCells()}>
+            New Game
+          </button>
+        </div>
       </div>
     );
   }

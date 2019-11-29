@@ -88,7 +88,7 @@ class Grid extends React.Component {
         <button className="new-game" onClick={() => this.resetCells()}>
           New Game
         </button>
-        {this.state.gameWon ? "You win!" : null}
+        {true ? "You win!" : null}
       </div>
     );
   }

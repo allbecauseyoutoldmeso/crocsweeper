@@ -1,6 +1,6 @@
 import React from "react";
 import Grid from "./Grid";
-import Controls from "./Controls";
+import Crocodile from "./Crocodile";
 
 class Layout extends React.Component {
   render() {
@@ -11,7 +11,7 @@ class Layout extends React.Component {
             <Grid />
           </div>
           <div className="col-4">
-            <Controls />
+            <Crocodile />
           </div>
         </div>
       </div>

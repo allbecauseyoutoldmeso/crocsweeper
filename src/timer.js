@@ -3,7 +3,7 @@ import React, { useState, Fragment } from "react";
 const Timer = () => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
-  const [active, setActive] = useState(false);
+  const [intervalId, setIntervalId] = useState(null);
 
   const newSecond = second => {
     if (second > 0 && second % 60 === 0) {
@@ -21,11 +21,12 @@ const Timer = () => {
   const formattedNumber = number => ("0" + number).slice(-2);
 
   const startTimer = () => {
-    setInterval(countUp, 1000);
+    const intervalId = setInterval(countUp, 1000);
+    setIntervalId(intervalId);
   };
 
   const stopTimer = () => {
-    clearInterval();
+    clearInterval(intervalId);
   };
 
   const resetTimer = () => {

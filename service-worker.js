@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/crocsweeper/precache-manifest.2807ce8fe796c33505cc9d826fa817f9.js"
+  "/crocsweeper/precache-manifest.f0535fb0d19a1f69dd13f6b82f6303e3.js"
 );
 
 self.addEventListener('message', (event) => {

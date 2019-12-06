@@ -3,20 +3,44 @@ import React, { useState, Fragment } from "react";
 const Timer = () => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
+  const [active, setActive] = useState(false);
 
-  const kate = () => {
-    console.log("I was called");
-    setSeconds(currentSecond => currentSecond + 1);
+  const newSecond = second => {
+    if (second > 0 && second % 60 === 0) {
+      setMinutes(currentMinute => currentMinute + 1);
+      return 0;
+    } else {
+      return second + 1;
+    }
   };
 
-  const handleClick = () => {
-    setInterval(kate, 1000);
+  const countUp = () => {
+    setSeconds(currentSecond => newSecond(currentSecond));
+  };
+
+  const formattedNumber = number => ("0" + number).slice(-2);
+
+  const startTimer = () => {
+    setInterval(countUp, 1000);
+  };
+
+  const stopTimer = () => {
+    clearInterval();
+  };
+
+  const resetTimer = () => {
+    setSeconds(0);
+    setMinutes(0);
   };
 
   return (
     <Fragment>
-      <div>{seconds}</div>
-      <button onClick={handleClick}>start</button>
+      <div>
+        {formattedNumber(minutes)}:{formattedNumber(seconds)}
+      </div>
+      <button onClick={startTimer}>start</button>
+      <button onClick={stopTimer}>stop</button>
+      <button onClick={resetTimer}>reset</button>
     </Fragment>
   );
 };

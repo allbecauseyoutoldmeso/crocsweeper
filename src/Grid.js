@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import CellUpdater from "./CellUpdater";
 import Cell from "./Cell";
 import CellGenerator from "./CellGenerator";
@@ -93,18 +93,18 @@ class Grid extends React.Component {
     const rows = this.rows();
 
     return (
-      <div>
+      <Fragment>
         <YouWin
           show={this.state.showYouWin}
           onClick={() => this.hideYouWin()}
         />
         <div className="grid">{rows}</div>
-        <div className="row">
+        <div>
           <button className="new-game" onClick={() => this.resetGame()}>
             New Game
           </button>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }

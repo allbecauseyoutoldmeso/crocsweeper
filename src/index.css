@@ -1,27 +1,9 @@
 body {
-  margin: 20px !important;
   background-color: #d9d9d9 !important;
   font-family: "Nunito", sans-serif;
 }
 
-ol,
-ul {
-  padding-left: 30px;
-}
-
-.new-game {
-  font-family: "Nunito", sans-serif;
-  background-color: #5baa41;
-  border-radius: 5px;
-  border-color: #5baa41;
-  color: #ffffff;
-  margin: auto;
-}
-
-.big-croc {
-  width: 100%;
-  margin: 20px;
-}
+/* icons in grid */
 
 .crocodile {
   width: 60%;
@@ -32,20 +14,18 @@ ul {
   margin-top: -2px;
 }
 
+/*
+grid layout */
+
+ol,
+ul {
+  padding-left: 30px;
+}
+
 .board-row:after {
   clear: both;
   content: "";
   display: table;
-}
-
-.grid {
-  margin-left: 40px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.status {
-  margin-bottom: 10px;
 }
 
 .square {
@@ -74,14 +54,7 @@ ul {
   background: #ddd;
 }
 
-.game {
-  display: flex;
-  flex-direction: row;
-}
-
-.game-info {
-  margin-left: 20px;
-}
+/* you win modal */
 
 .modal-content {
   color: #ffffff;
@@ -109,10 +82,23 @@ ul {
   outline: none;
 }
 
+/* timer */
+
 .timer {
   background-color: #5baa41;
   color: #ffffff;
   font-size: 30px;
   border-radius: 5px;
   width: 20%;
+}
+
+/* new game button */
+
+.new-game {
+  font-family: "Nunito", sans-serif;
+  background-color: #5baa41;
+  border-radius: 5px;
+  border-color: #5baa41;
+  color: #ffffff;
+  margin: auto;
 }

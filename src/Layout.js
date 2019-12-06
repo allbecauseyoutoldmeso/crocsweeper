@@ -11,7 +11,7 @@ class Layout extends React.Component {
           <div className="col-6">
             <Game />
           </div>
-          <div className="col-1">
+          <div className="col-3">
             <div className="main-image">
               <BigCroc />
             </div>

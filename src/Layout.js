@@ -8,13 +8,9 @@ class Layout extends React.Component {
       <div className="container-fluid">
         <div className="row">
           <div className="col-3"></div>
-          <div className="col-6">
+          <div className="col-6 game-container">
+            <BigCroc />
             <Game />
-          </div>
-          <div className="col-3">
-            <div className="main-image">
-              <BigCroc />
-            </div>
           </div>
         </div>
       </div>

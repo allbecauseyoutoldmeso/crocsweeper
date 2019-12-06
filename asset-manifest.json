@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/crocsweeper/static/css/main.8f076aa0.chunk.css",
+    "main.js": "/crocsweeper/static/js/main.318ca943.chunk.js",
+    "main.js.map": "/crocsweeper/static/js/main.318ca943.chunk.js.map",
+    "runtime-main.js": "/crocsweeper/static/js/runtime-main.6a98a05c.js",
+    "runtime-main.js.map": "/crocsweeper/static/js/runtime-main.6a98a05c.js.map",
+    "static/css/2.17e5ed98.chunk.css": "/crocsweeper/static/css/2.17e5ed98.chunk.css",
+    "static/js/2.133e9515.chunk.js": "/crocsweeper/static/js/2.133e9515.chunk.js",
+    "static/js/2.133e9515.chunk.js.map": "/crocsweeper/static/js/2.133e9515.chunk.js.map",
+    "index.html": "/crocsweeper/index.html",
+    "precache-manifest.de67384b61d491c50bc96e791a43eb04.js": "/crocsweeper/precache-manifest.de67384b61d491c50bc96e791a43eb04.js",
+    "service-worker.js": "/crocsweeper/service-worker.js",
+    "static/css/2.17e5ed98.chunk.css.map": "/crocsweeper/static/css/2.17e5ed98.chunk.css.map",
+    "static/css/main.8f076aa0.chunk.css.map": "/crocsweeper/static/css/main.8f076aa0.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6a98a05c.js",
+    "static/css/2.17e5ed98.chunk.css",
+    "static/js/2.133e9515.chunk.js",
+    "static/css/main.8f076aa0.chunk.css",
+    "static/js/main.318ca943.chunk.js"
+  ]
+}

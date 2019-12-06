@@ -108,3 +108,11 @@ ul {
 .close:focus {
   outline: none;
 }
+
+.timer {
+  background-color: #5baa41;
+  color: #ffffff;
+  font-size: 30px;
+  border-radius: 5px;
+  width: 20%;
+}

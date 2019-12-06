@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from "react";
 import Grid from "./Grid";
 
-const Timer = () => {
+const Game = () => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [intervalId, setIntervalId] = useState(null);
@@ -35,11 +35,17 @@ const Timer = () => {
     setMinutes(0);
   };
 
-  return (
-    <Fragment>
-      <div>
+  const Timer = () => {
+    return (
+      <div className="timer text-center">
         {formattedNumber(minutes)}:{formattedNumber(seconds)}
       </div>
+    );
+  };
+
+  return (
+    <Fragment>
+      <Timer />
       <Grid
         className="grid"
         startTimer={start}
@@ -50,4 +56,4 @@ const Timer = () => {
   );
 };
 
-export default Timer;
+export default Game;

@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from "react";
+import Grid from "./Grid";
 
 const Timer = () => {
   const [seconds, setSeconds] = useState(0);
@@ -20,16 +21,16 @@ const Timer = () => {
 
   const formattedNumber = number => ("0" + number).slice(-2);
 
-  const startTimer = () => {
+  const start = () => {
     const intervalId = setInterval(countUp, 1000);
     setIntervalId(intervalId);
   };
 
-  const stopTimer = () => {
+  const stop = () => {
     clearInterval(intervalId);
   };
 
-  const resetTimer = () => {
+  const reset = () => {
     setSeconds(0);
     setMinutes(0);
   };
@@ -39,9 +40,12 @@ const Timer = () => {
       <div>
         {formattedNumber(minutes)}:{formattedNumber(seconds)}
       </div>
-      <button onClick={startTimer}>start</button>
-      <button onClick={stopTimer}>stop</button>
-      <button onClick={resetTimer}>reset</button>
+      <Grid
+        className="grid"
+        startTimer={start}
+        stopTimer={stop}
+        resetTimer={reset}
+      />
     </Fragment>
   );
 };

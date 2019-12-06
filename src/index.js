@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { Route, Link, BrowserRouter as Router } from "react-router-dom";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 import Layout from "./Layout";
 import Timer from "./timer";
 import "bootstrap/dist/css/bootstrap.min.css";

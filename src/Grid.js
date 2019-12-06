@@ -15,6 +15,7 @@ class Grid extends React.Component {
       cells: newCells(),
       showYouWin: false
     };
+    this.props.startTimer();
   }
 
   safeCells() {
@@ -27,6 +28,7 @@ class Grid extends React.Component {
 
   endGame() {
     if (this.gameWon()) {
+      this.props.stopTimer();
       this.setState({ showYouWin: true });
     }
   }
@@ -37,6 +39,7 @@ class Grid extends React.Component {
 
     if (event.type === "click" && clickedCell.crocodile) {
       cellUpdater.endGameUpdate(cells);
+      this.props.stopTimer();
     } else if (event.type === "click") {
       cellUpdater.leftClickUpdate(cells, clickedCell);
     } else {
@@ -76,8 +79,10 @@ class Grid extends React.Component {
     ));
   }
 
-  resetCells() {
+  resetGame() {
     this.setState({ cells: newCells() });
+    this.props.resetTimer();
+    this.props.startTimer();
   }
 
   hideYouWin() {
@@ -93,9 +98,9 @@ class Grid extends React.Component {
           show={this.state.showYouWin}
           onClick={() => this.hideYouWin()}
         />
-        <div class="grid">{rows}</div>
-        <div class="row">
-          <button className="new-game" onClick={() => this.resetCells()}>
+        <div className="grid">{rows}</div>
+        <div className="row">
+          <button className="new-game" onClick={() => this.resetGame()}>
             New Game
           </button>
         </div>

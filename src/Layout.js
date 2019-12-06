@@ -1,5 +1,5 @@
 import React from "react";
-import Grid from "./Grid";
+import Timer from "./timer";
 import BigCroc from "./bigCroc";
 
 class Layout extends React.Component {
@@ -9,7 +9,7 @@ class Layout extends React.Component {
         <div className="row">
           <div className="col-3"></div>
           <div className="col-6">
-            <Grid className="grid" />
+            <Timer />
           </div>
           <div className="col-1">
             <div className="main-image">

@@ -4,8 +4,19 @@ import Cell from "./Cell";
 import CellGenerator from "./CellGenerator";
 import YouWin from "./YouWin";
 
+function dimension() {
+  const screenSize = window.innerWidth;
+  if (screenSize < 400) {
+    return 8;
+  } else if (screenSize < 500) {
+    return 12;
+  } else {
+    return 15;
+  }
+}
+
 function newCells() {
-  return new CellGenerator(15).cells();
+  return new CellGenerator(dimension()).cells();
 }
 
 class Grid extends React.Component {

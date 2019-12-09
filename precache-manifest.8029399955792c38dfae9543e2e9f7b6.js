@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e06056cc02af5c916d4df59356c1a18e",
+    "revision": "fcb4cef025e38ed4d779a063de9a93e9",
     "url": "/crocsweeper/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/crocsweeper/static/css/2.17e5ed98.chunk.css"
   },
   {
-    "revision": "79123238b9d12747844a",
+    "revision": "e8a4e99731e846b557ba",
     "url": "/crocsweeper/static/css/main.d836540d.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/crocsweeper/static/js/2.d724c3a5.chunk.js"
   },
   {
-    "revision": "79123238b9d12747844a",
-    "url": "/crocsweeper/static/js/main.b3e8be7c.chunk.js"
+    "revision": "e8a4e99731e846b557ba",
+    "url": "/crocsweeper/static/js/main.dd280952.chunk.js"
   },
   {
     "revision": "c89b48be993df339b872",

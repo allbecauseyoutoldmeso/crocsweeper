@@ -91,6 +91,7 @@ class Grid extends React.Component {
   }
 
   resetGame() {
+    this.props.stopTimer();
     this.setState({ cells: newCells() });
     this.props.resetTimer();
     this.props.startTimer();

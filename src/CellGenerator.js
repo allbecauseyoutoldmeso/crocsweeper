@@ -1,6 +1,7 @@
 class CellGenerator {
-  constructor(dimension) {
+  constructor(dimension, level) {
     this.dimension = dimension;
+    this.level = level;
   }
 
   coordinates() {
@@ -21,7 +22,9 @@ class CellGenerator {
   cells() {
     let coordinates = this.coordinates(3);
 
-    coordinates.forEach(obj => (obj.crocodile = Math.random() < 0.2));
+    coordinates.forEach(obj => {
+      obj.crocodile = Math.random() < this.level / 10;
+    });
     coordinates.forEach(obj => (obj.hidden = true));
     coordinates.forEach(obj => (obj.flagged = false));
 

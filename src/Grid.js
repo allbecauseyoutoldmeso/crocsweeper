@@ -3,6 +3,7 @@ import CellUpdater from "./CellUpdater";
 import Cell from "./Cell";
 import CellGenerator from "./CellGenerator";
 import YouWin from "./YouWin";
+import Picker from "react-mobile-picker";
 
 function dimension() {
   const screenSize = window.innerWidth;
@@ -15,17 +16,24 @@ function dimension() {
   }
 }
 
-function newCells() {
-  return new CellGenerator(dimension()).cells();
+function newCells(level) {
+  return new CellGenerator(dimension(), level).cells();
 }
 
 class Grid extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cells: newCells(),
-      showYouWin: false
+      cells: newCells(1),
+      showYouWin: false,
+      valueGroups: {
+        level: 1
+      },
+      optionGroups: {
+        level: [1]
+      }
     };
+
     this.props.startTimer();
   }
 
@@ -38,9 +46,19 @@ class Grid extends React.Component {
   }
 
   endGame() {
+    const newLevel = this.state.valueGroups.level + 1;
+
     if (this.gameWon()) {
       this.props.stopTimer();
-      this.setState({ showYouWin: true });
+      this.setState({
+        showYouWin: true,
+        valueGroups: {
+          level: newLevel
+        },
+        optionGroups: {
+          level: [...Array(newLevel + 1).keys()].slice(1)
+        }
+      });
     }
   }
 
@@ -92,7 +110,10 @@ class Grid extends React.Component {
 
   resetGame() {
     this.props.stopTimer();
-    this.setState({ cells: newCells() });
+    // this.setState({ cells: newCells() });
+    this.setState({
+      cells: newCells(this.state.valueGroups.level)
+    });
     this.props.resetTimer();
     this.props.startTimer();
   }
@@ -101,8 +122,20 @@ class Grid extends React.Component {
     this.setState({ showYouWin: false });
   }
 
+  handleChange = (name, value) => {
+    this.setState(({ valueGroups }) => ({
+      valueGroups: {
+        ...valueGroups,
+        [name]: value
+      }
+    }));
+
+    this.resetGame();
+  };
+
   render() {
     const rows = this.rows();
+    const { optionGroups, valueGroups } = this.state;
 
     return (
       <Fragment>
@@ -116,6 +149,11 @@ class Grid extends React.Component {
             New Game
           </button>
         </div>
+        <Picker
+          optionGroups={optionGroups}
+          valueGroups={valueGroups}
+          onChange={this.handleChange}
+        />
       </Fragment>
     );
   }

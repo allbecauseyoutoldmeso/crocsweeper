@@ -2,27 +2,34 @@ import React, { useState, Fragment } from "react";
 import Grid from "./Grid";
 
 const Game = () => {
-  const [seconds, setSeconds] = useState(0);
+  const [seconds, setSeconds] = useState(60);
   const [minutes, setMinutes] = useState(0);
   const [intervalId, setIntervalId] = useState(null);
 
   const newSecond = second => {
-    if (second > 0 && second % 60 === 0) {
-      setMinutes(currentMinute => currentMinute + 1);
-      return 0;
+    if (second === 0) {
+      setMinutes(currentMinute => currentMinute - 1);
+      return 60;
     } else {
-      return second + 1;
+      return second - 1;
     }
   };
 
-  const countUp = () => {
+  // const countUp = () => {
+  //   setSeconds(currentSecond => newSecond(currentSecond));
+  // };
+
+  const countDown = () => {
     setSeconds(currentSecond => newSecond(currentSecond));
   };
 
   const formattedNumber = number => ("0" + number).slice(-2);
 
-  const start = () => {
-    const intervalId = setInterval(countUp, 1000);
+  const start = level => {
+    setSeconds(60);
+    setMinutes(10 - level);
+
+    const intervalId = setInterval(countDown, 1000);
     setIntervalId(intervalId);
   };
 
@@ -48,7 +55,7 @@ const Game = () => {
       <Timer />
       <Grid
         className="grid"
-        startTimer={start}
+        startTimer={level => start(level)}
         stopTimer={stop}
         resetTimer={reset}
       />

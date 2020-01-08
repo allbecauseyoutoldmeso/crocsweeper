@@ -34,7 +34,7 @@ class Grid extends React.Component {
       }
     };
 
-    this.props.startTimer();
+    this.props.startTimer(1);
   }
 
   safeCells() {
@@ -110,12 +110,11 @@ class Grid extends React.Component {
 
   resetGame() {
     this.props.stopTimer();
-    // this.setState({ cells: newCells() });
     this.setState({
       cells: newCells(this.state.valueGroups.level)
     });
     this.props.resetTimer();
-    this.props.startTimer();
+    this.props.startTimer(this.state.valueGroups.level);
   }
 
   hideYouWin() {
